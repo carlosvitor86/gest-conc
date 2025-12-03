@@ -39,7 +39,26 @@ class ConcursoController extends Controller
             'data_homologacao' => 'required|date',
             'banca_organizadora' => 'required|string|max:255',
             'status' => 'required|in:Ativo,Concluído,Suspenso',
-            'edital' => 'nullable|file|mimes:pdf|max:5120', // PDF de até 5MB
+            'edital' => 'nullable|file|mimes:pdf|max:20480', // PDF de até 5MB
+        ], [
+            'nome.required' => 'O nome do concurso é obrigatório.',
+            'nome.string' => 'O nome deve ser um texto.',
+            'nome.max' => 'O nome não pode ter mais que 255 caracteres.',
+            'ano.required' => 'O ano é obrigatório.',
+            'ano.digits' => 'O ano deve ter 4 dígitos.',
+            'orgao.required' => 'O órgão é obrigatório.',
+            'orgao.string' => 'O órgão deve ser um texto.',
+            'orgao.max' => 'O órgão não pode ter mais que 255 caracteres.',
+            'data_homologacao.required' => 'A data de homologação é obrigatória.',
+            'data_homologacao.date' => 'A data de homologação deve ser uma data válida.',
+            'banca_organizadora.required' => 'A banca organizadora é obrigatória.',
+            'banca_organizadora.string' => 'A banca organizadora deve ser um texto.',
+            'banca_organizadora.max' => 'A banca organizadora não pode ter mais que 255 caracteres.',
+            'status.required' => 'O status é obrigatório.',
+            'status.in' => 'O status selecionado é inválido.',
+            'edital.file' => 'O edital deve ser um arquivo.',
+            'edital.mimes' => 'O edital deve ser um arquivo PDF.',
+            'edital.max' => 'O edital não pode ser maior que 20MB.',
         ]);
 
         $data = $request->except('edital');
@@ -84,7 +103,26 @@ class ConcursoController extends Controller
             'data_homologacao' => 'required|date',
             'banca_organizadora' => 'required|string|max:255',
             'status' => 'required|in:Ativo,Concluído,Suspenso',
-            'edital' => 'nullable|file|mimes:pdf|max:5120',
+            'edital' => 'nullable|file|mimes:pdf|max:20480',
+        ], [
+            'nome.required' => 'O nome do concurso é obrigatório.',
+            'nome.string' => 'O nome deve ser um texto.',
+            'nome.max' => 'O nome não pode ter mais que 255 caracteres.',
+            'ano.required' => 'O ano é obrigatório.',
+            'ano.digits' => 'O ano deve ter 4 dígitos.',
+            'orgao.required' => 'O órgão é obrigatório.',
+            'orgao.string' => 'O órgão deve ser um texto.',
+            'orgao.max' => 'O órgão não pode ter mais que 255 caracteres.',
+            'data_homologacao.required' => 'A data de homologação é obrigatória.',
+            'data_homologacao.date' => 'A data de homologação deve ser uma data válida.',
+            'banca_organizadora.required' => 'A banca organizadora é obrigatória.',
+            'banca_organizadora.string' => 'A banca organizadora deve ser um texto.',
+            'banca_organizadora.max' => 'A banca organizadora não pode ter mais que 255 caracteres.',
+            'status.required' => 'O status é obrigatório.',
+            'status.in' => 'O status selecionado é inválido.',
+            'edital.file' => 'O edital deve ser um arquivo.',
+            'edital.mimes' => 'O edital deve ser um arquivo PDF.',
+            'edital.max' => 'O edital não pode ser maior que 20MB.',
         ]);
 
         $data = $request->except('edital');
